@@ -6,7 +6,7 @@ extends State
 
 var jump_force
 var direction_force
-@onready var last_direction = sign(player.scale.x)
+var last_direction
 
 signal player_jump
 
@@ -15,6 +15,7 @@ func _ready():
 	set_physics_process(false)
 	
 func _enter_state():
+	last_direction = sign(player.visual_node.scale.x)
 	player.velocity.x = 0
 	jump_force = 0
 	direction_force = 0

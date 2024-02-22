@@ -19,7 +19,7 @@ func _exit_state():
 func _physics_process(delta):
 	# gravity?
 	# bounce
-	if player.bounce_raycast.is_colliding():
+	if player.bounce_raycast.is_colliding() and player.velocity.x != 0:
 		player.velocity.x += player.velocity.x * -2
 		player.visual_node.scale.x = player.visual_node.scale.x * -1
 		player.bounce_raycast.set_enabled(false)

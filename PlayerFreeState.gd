@@ -2,17 +2,19 @@ class_name PlayerFreeState
 extends State
 
 @export var player: Player
-var last_direction = 1
+var last_direction
 
 signal charge_jump
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(false)
-	
+
 func _enter_state():
 	player.velocity = Vector2.ZERO
 	set_physics_process(true)
+	if (player.visual_node):
+		last_direction = player.visual_node.scale.x
 	
 func _exit_state():
 	set_physics_process(false)
