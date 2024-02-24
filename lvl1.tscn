@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmrn4qaw8kove"]
+[gd_scene load_steps=16 format=3 uid="uid://cmrn4qaw8kove"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_3qwd6"]
 [ext_resource type="Texture2D" uid="uid://bh2vv8ox8aj4n" path="res://Sprite-0004.png" id="1_v4slt"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://PlayerFreeState.gd" id="5_n05gv"]
 [ext_resource type="Script" path="res://PlayerFallState.gd" id="6_lf32r"]
 [ext_resource type="PackedScene" uid="uid://dukvgwciua1dl" path="res://snowball.tscn" id="8_dhght"]
+[ext_resource type="PackedScene" uid="uid://pbs53lnp4bln" path="res://button.tscn" id="10_kyebx"]
+[ext_resource type="Script" path="res://button.gd" id="11_imr8n"]
+[ext_resource type="PackedScene" uid="uid://bky7xs5407x6n" path="res://platform.tscn" id="12_gh0sq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wpo8"]
 texture = ExtResource("3_ifrao")
@@ -360,9 +363,24 @@ shape = SubResource("RectangleShape2D_dy4ah")
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[node name="Button" parent="." instance=ExtResource("10_kyebx")]
+position = Vector2(36, 6)
+script = ExtResource("11_imr8n")
+
+[node name="Platform" parent="Button" instance=ExtResource("12_gh0sq")]
+position = Vector2(-20, -70)
+script = null
+
+[node name="Timer" type="Timer" parent="Button"]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="charge_jump" from="CharacterBody2D/PlayerStateMachine/PlayerFreeState" to="CharacterBody2D" method="_on_player_free_state_charge_jump"]
 [connection signal="player_jump" from="CharacterBody2D/PlayerStateMachine/PlayerJumpState" to="CharacterBody2D" method="_on_player_jump_state_player_jump"]
 [connection signal="timeout" from="CharacterBody2D/PlayerStateMachine/PlayerJumpState/Timer" to="CharacterBody2D/PlayerStateMachine/PlayerJumpState" method="_on_timer_timeout"]
 [connection signal="player_recover" from="CharacterBody2D/PlayerStateMachine/PlayerFallState" to="CharacterBody2D" method="_on_player_fall_state_player_recover"]
 [connection signal="timeout" from="CharacterBody2D/PlayerStateMachine/PlayerFallState/RayCastTimer" to="CharacterBody2D/PlayerStateMachine/PlayerFallState" method="_on_ray_cast_timer_timeout"]
 [connection signal="body_entered" from="CheckPoint_1" to="." method="_on_check_point_1_body_entered"]
+[connection signal="body_entered" from="Button" to="Button" method="_on_body_entered"]
+[connection signal="body_exited" from="Button" to="Button" method="_on_body_exited"]
+[connection signal="timeout" from="Button/Timer" to="Button" method="_on_timer_timeout"]
