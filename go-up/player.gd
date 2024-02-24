@@ -26,15 +26,7 @@ func _on_player_free_state_charge_jump():
 
 func _on_player_fall_state_player_recover():
 	fsm.change_state(player_free_state)
-#
-#
-#func _on_area_2d_body_entered(body):
-#	if body is TileMap:
-#		print("before", velocity.x)
-#		# Detect if sideways collision, by checking the velocity of the player
-#		var velocity_sign = sign(velocity.x)
-#		if not is_on_floor() and abs(velocity_sign) > 0:
-#			velocity.x = velocity.x * -3/4
-#		print("after", velocity.x)
-#	elif body is SnowBall:
-#		pass
+
+
+func _on_player_free_state_state_finished():
+	fsm.change_state(player_fall_state)

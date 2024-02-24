@@ -23,10 +23,11 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not player.is_on_floor():
-		player.velocity.y += player.gravity * delta
+		state_finished.emit()
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("mv_up") and player.is_on_floor():
+	if (Input.is_action_just_pressed("mv_up") or Input.is_action_just_pressed("mv_special")) \
+	  and player.is_on_floor():
 		charge_jump.emit()
 
 	# Get the input direction and handle the movement/deceleration.

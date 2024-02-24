@@ -39,7 +39,7 @@ func _physics_process(delta):
 		last_direction = direction
 
 	# Handle Jump.
-	if Input.is_action_just_released("mv_up"):
+	if Input.is_action_just_released("mv_up") or Input.is_action_just_released("mv_special"):
 		jump()
 
 func _on_timer_timeout():
