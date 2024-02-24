@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://pbs53lnp4bln"]
 
-[ext_resource type="Texture2D" uid="uid://dn07am33l5dyb" path="res://tiles.png" id="1_6egys"]
+[ext_resource type="Texture2D" uid="uid://dn07am33l5dyb" path="res://go-up/tiles.png" id="1_qo88n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6x5u"]
 size = Vector2(6.2, 3.2)
@@ -13,7 +13,7 @@ shape = SubResource("RectangleShape2D_r6x5u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
-texture = ExtResource("1_6egys")
+texture = ExtResource("1_qo88n")
 centered = false
 hframes = 8
 vframes = 14

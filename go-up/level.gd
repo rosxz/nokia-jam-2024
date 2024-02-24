@@ -12,10 +12,16 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func _on_check_point_1_body_entered(body):
+func checkpoint(body):
 	if body is CharacterBody2D:
 		# check if should be sent up or down
-		player.global_position.y += 12 * (1 if body.velocity.y > 0 else -1)
+		player.global_position.y += 6 * (1 if body.velocity.y > 0 else -1)
 		camera.global_position.y += 84 * (1 if body.velocity.y > 0 else -1)
-			
+
+
+func _on_check_point_1_body_entered(body):
+	checkpoint(body)
+
+
+func _on_check_point_2_body_entered(body):
+	checkpoint(body)

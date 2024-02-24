@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bky7xs5407x6n"]
 
-[ext_resource type="Texture2D" uid="uid://dn07am33l5dyb" path="res://tiles.png" id="1_m5tcf"]
+[ext_resource type="Texture2D" uid="uid://dn07am33l5dyb" path="res://go-up/tiles.png" id="1_1oa4t"]
 
 [sub_resource type="GDScript" id="GDScript_uplcx"]
 script/source = "extends StaticBody2D
@@ -27,7 +27,7 @@ script = SubResource("GDScript_uplcx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
-texture = ExtResource("1_m5tcf")
+texture = ExtResource("1_1oa4t")
 centered = false
 hframes = 8
 vframes = 14

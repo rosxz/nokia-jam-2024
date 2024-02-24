@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cak0i3j8dw3ib"]
+
+[ext_resource type="Texture2D" uid="uid://bssy2lbkix8d1" path="res://go-up/Sprite-0003.png" id="1_sijps"]
+[ext_resource type="Script" path="res://go-up/menu.gd" id="2_we1jj"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(24, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(24, 42)
+texture = ExtResource("1_sijps")
+script = ExtResource("2_we1jj")

@@ -22,8 +22,8 @@ func _physics_process(delta):
 	if player.bounce_raycast.is_colliding() and player.velocity.x != 0:
 		player.velocity.x += player.velocity.x * -2
 		player.visual_node.scale.x = player.visual_node.scale.x * -1
-		player.bounce_raycast.set_enabled(false)
-		raycast_timer.start()
+#		player.bounce_raycast.set_enabled(false)
+#		raycast_timer.start()
 	
 	player.velocity.x = move_toward(player.velocity.x, 0, 0.5)
 	if not player.is_on_floor():
