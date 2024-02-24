@@ -16,10 +16,10 @@ func _process(delta):
 	pass
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0emi1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fskei"]
 size = Vector2(6, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fskei"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0emi1"]
 size = Vector2(6, 6)
 
 [node name="StaticBody2D" type="StaticBody2D"]
@@ -33,13 +33,13 @@ hframes = 8
 vframes = 14
 frame = 88
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_fskei")
+disabled = true
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_0emi1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 3)
-shape = SubResource("RectangleShape2D_fskei")
-disabled = true

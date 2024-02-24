@@ -28,8 +28,10 @@ func _on_body_entered(body):
 	timer.stop()
 	if curr_state == state.RELEASED:
 		button_sprite.frame += sprite_offset
-		platform_sprite.frame += sprite_offset
-		platform_collision.set_deferred("disabled", false)
+		for child in self.get_children():
+			if child is StaticBody2D:
+				child.get_child(0).frame += sprite_offset # platform sprite
+				child.get_child(1).set_deferred("disabled", false) # platform collision
 		curr_state = state.PRESSED
 
 func _on_body_exited(body):
