@@ -4,7 +4,6 @@ extends RigidBody2D
 @onready var sprite = $Sprite2D as Sprite2D
 @onready var collision = $CollisionShape2D as CollisionShape2D
 @onready var despawn_timer = $Despawn as Timer
-@onready var spawn_timer = $Timer as Timer
 @export var direction_ray: RayCast2D
 @onready var start_position = global_position
 var direction_vector
