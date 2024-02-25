@@ -8,5 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("act"):
+	if Input.is_anything_pressed():
 		get_tree().change_scene_to_file("res://go-up/lvl1.tscn")

@@ -20,8 +20,19 @@ func _process(delta):
 	sprite.global_rotation_degrees = -global_rotation
 
 func _on_despawn_timeout():
+	call_deferred("reset_snowball")
+	despawn_timer.start()
+
+
+func _on_check_point_body_entered(body):
+	if body == self:
+		despawn_timer.start()
+		call_deferred("reset_snowball")
+#		print(despawn_timer.time_left)
+
+	
+func reset_snowball():
 	global_position = start_position
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0
 	apply_force(direction_vector)
-	despawn_timer.start()

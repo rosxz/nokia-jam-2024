@@ -31,6 +31,7 @@ func _physics_process(delta):
 	else:
 		if player.velocity.y == 0:
 			player_recover.emit()
+			return
 	player.move_and_slide()
 
 
