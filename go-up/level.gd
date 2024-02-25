@@ -45,8 +45,7 @@ func _on_character_body_2d_sound_player(track):
 		"bounce":
 			audio_stream = preload("res://go-up/blip8.wav")
 		"recover":
-			if not audio_player.playing:
-				audio_stream = preload("res://go-up/blip8.wav")
+			audio_stream = preload("res://go-up/blip8.wav")
 	audio_player.stream = audio_stream
 	audio_player.play()
 
