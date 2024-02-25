@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cak0i3j8dw3ib"]
 
-[ext_resource type="Texture2D" uid="uid://di5td5akua8in" path="res://go-up/frost_and_furious_menu.png" id="1_7e5b0"]
+[ext_resource type="Texture2D" uid="uid://ctp4or7g1xl5t" path="res://go-up/frost_and_furious_menu.png" id="1_7e5b0"]
 [ext_resource type="Script" path="res://go-up/menu.gd" id="2_slyo6"]
 [ext_resource type="FontFile" uid="uid://hoicc0epy8ty" path="res://go-up/EffortsPro.ttf" id="3_cdtv8"]
 [ext_resource type="AudioStream" uid="uid://2dj312w226ru" path="res://go-up/jingle1.wav" id="4_dpow5"]
