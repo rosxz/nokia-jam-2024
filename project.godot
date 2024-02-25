@@ -17,8 +17,8 @@ config/icon="res://go-up/icon.svg"
 
 [display]
 
-window/size/viewport_width=48
-window/size/viewport_height=84
+window/size/viewport_width=84
+window/size/viewport_height=48
 window/size/window_width_override=192
 window/size/window_height_override=328
 window/stretch/mode="viewport"

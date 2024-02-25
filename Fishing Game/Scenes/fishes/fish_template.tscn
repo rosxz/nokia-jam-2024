@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnv4kr1u7dfxb"]
+
+[ext_resource type="Texture2D" uid="uid://p4ctqjow7b8o" path="res://Fishing Game/Scenes/fishes/fish_art/goldfish_piskel.png" id="1_8si8j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cx8b"]
+atlas = ExtResource("1_8si8j")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtvha"]
+atlas = ExtResource("1_8si8j")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lxm7"]
+atlas = ExtResource("1_8si8j")
+region = Rect2(0, 480, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2tnt"]
+atlas = ExtResource("1_8si8j")
+region = Rect2(480, 480, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q171h"]
+atlas = ExtResource("1_8si8j")
+region = Rect2(0, 960, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1i1a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cx8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtvha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lxm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2tnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q171h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="fish_template" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(67, 20)
+scale = Vector2(0.0375, 0.0395833)
+sprite_frames = SubResource("SpriteFrames_p1i1a")
+frame_progress = 0.553528
+centered = false
