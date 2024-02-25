@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cak0i3j8dw3ib"]
+
+[ext_resource type="Texture2D" uid="uid://di5td5akua8in" path="res://go-up/frost_and_furious_menu.png" id="1_7e5b0"]
+[ext_resource type="Script" path="res://go-up/menu.gd" id="2_slyo6"]
+[ext_resource type="FontFile" uid="uid://hoicc0epy8ty" path="res://go-up/EffortsPro.ttf" id="3_cdtv8"]
+[ext_resource type="AudioStream" uid="uid://2dj312w226ru" path="res://go-up/jingle1.wav" id="4_dpow5"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(24, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(24, 42)
+texture = ExtResource("1_7e5b0")
+script = ExtResource("2_slyo6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 3
+offset_left = 5.0
+offset_top = 71.0
+offset_right = 45.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(0.607843, 0.780392, 0, 1)
+theme_override_colors/font_outline_color = Color(0.168627, 0.247059, 0.0352941, 1)
+theme_override_fonts/font = ExtResource("3_cdtv8")
+text = "ANY  KEY"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+texture_filter = 3
+offset_left = 8.0
+offset_top = 65.0
+offset_right = 44.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.607843, 0.780392, 0, 1)
+theme_override_colors/font_outline_color = Color(0.168627, 0.247059, 0.0352941, 1)
+theme_override_fonts/font = ExtResource("3_cdtv8")
+text = "PRESS"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dpow5")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Sprite2D" method="_on_timer_timeout"]
