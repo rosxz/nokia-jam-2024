@@ -14,11 +14,16 @@ const MAX_DIR_FORCE = 50
 @onready var bounce_raycast = $Node2D/RayCast2D
 @onready var visual_node = $Node2D
 
+signal sound_player(track)
+signal count_jump
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _on_player_jump_state_player_jump():
 	anim_player.play("jump")
+	sound_player.emit("jump")
+	count_jump.emit()
 	fsm.change_state(player_fall_state)
 
 
@@ -29,6 +34,7 @@ func _on_player_free_state_charge_jump():
 
 func _on_player_fall_state_player_recover():
 	anim_player.play("recover")
+	sound_player.emit("recover")
 	fsm.change_state(player_free_state)
 
 
@@ -40,3 +46,7 @@ func _on_player_free_state_state_finished():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "walk":
 		anim_player.play("RESET")
+
+
+func _on_player_fall_state_sound_player(track):
+	sound_player.emit("bounce")
