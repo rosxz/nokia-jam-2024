@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnv4kr1u7dfxb"]
+[gd_scene load_steps=9 format=3 uid="uid://dnv4kr1u7dfxb"]
 
 [ext_resource type="Texture2D" uid="uid://p4ctqjow7b8o" path="res://Fishing Game/Scenes/fishes/fish_art/goldfish_piskel.png" id="1_8si8j"]
 
@@ -45,11 +45,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxlpf"]
+radius = 2.23607
+
 [node name="fish_template" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(67, 20)
-scale = Vector2(0.0375, 0.0395833)
+texture_filter = 1
+scale = Vector2(0.03125, 0.0331157)
 sprite_frames = SubResource("SpriteFrames_p1i1a")
-frame_progress = 0.553528
-centered = false
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_nxlpf")
