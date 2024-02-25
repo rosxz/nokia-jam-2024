@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Fishing Game/Scenes/player/player.gd" id="1_nmb4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi3i1"]
-size = Vector2(1, 1)
+size = Vector2(2, 2)
 
 [node name="Player" type="Node2D"]
 position = Vector2(23, 3)
@@ -18,4 +18,5 @@ shape = SubResource("RectangleShape2D_qi3i1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_04p6y")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

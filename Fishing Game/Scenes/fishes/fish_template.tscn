@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnv4kr1u7dfxb"]
+[gd_scene load_steps=10 format=3 uid="uid://dnv4kr1u7dfxb"]
 
 [ext_resource type="Texture2D" uid="uid://p4ctqjow7b8o" path="res://Fishing Game/Scenes/fishes/fish_art/goldfish_piskel.png" id="1_8si8j"]
+[ext_resource type="Script" path="res://Fishing Game/Scenes/fishes/fish_movement.gd" id="1_ffhvt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0cx8b"]
 atlas = ExtResource("1_8si8j")
@@ -49,15 +50,18 @@ animations = [{
 radius = 2.23607
 
 [node name="fish_template" type="Node2D"]
+position = Vector2(43, 28)
+script = ExtResource("1_ffhvt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.03125, 0.0331157)
 sprite_frames = SubResource("SpriteFrames_p1i1a")
 autoplay = "default"
+flip_h = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -1)
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_nxlpf")

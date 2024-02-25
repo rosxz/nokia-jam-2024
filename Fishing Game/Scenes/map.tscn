@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://canpundi60ll7"]
+[gd_scene load_steps=6 format=3 uid="uid://canpundi60ll7"]
 
 [ext_resource type="Texture2D" uid="uid://bf4j02w7yw0cv" path="res://Fishing Game/Scenes/map/green.png" id="1_1lyle"]
 [ext_resource type="Texture2D" uid="uid://t5v43igoaygo" path="res://Fishing Game/Scenes/map/greener.png" id="2_klq2h"]
-[ext_resource type="PackedScene" uid="uid://dnv4kr1u7dfxb" path="res://Fishing Game/Scenes/fishes/fish_template.tscn" id="3_kb3ug"]
-[ext_resource type="PackedScene" uid="uid://l514p6wvdxg8" path="res://Fishing Game/Scenes/player/player.tscn" id="4_fjrr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1ja1"]
 texture = ExtResource("1_1lyle")
@@ -30,9 +28,3 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 65539, 
 
 [node name="Camera2D" type="Camera2D" parent="TileMap"]
 position = Vector2(42, 24)
-
-[node name="Player" parent="." instance=ExtResource("4_fjrr1")]
-position = Vector2(35, 27)
-
-[node name="fish_template" parent="Player" instance=ExtResource("3_kb3ug")]
-position = Vector2(12, -1)

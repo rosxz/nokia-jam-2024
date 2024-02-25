@@ -9,6 +9,7 @@
 [node name="map" parent="." instance=ExtResource("1_ka6dq")]
 
 [node name="Player" parent="." instance=ExtResource("2_4prb7")]
-position = Vector2(42, 10)
+position = Vector2(42, 14)
 
 [node name="fish_template" parent="." instance=ExtResource("3_w367o")]
+position = Vector2(32, 23)
