@@ -5,7 +5,7 @@ extends Node2D
 @onready var timer = $Timer as Timer
 @onready var audio_player = $AudioStreamPlayer as AudioStreamPlayer
 
-const game_level_path = {0: "res://go-up/menu.tscn", 1: "res://Fishing Game/Playable_level.tscn"}
+const game_level_path = {0: "res://go-up/menu.tscn", 1: "res://Fishing Game/menu/Menu.tscn"}
 var texture
 var game_index = 0
 var audio_stream = preload("res://hit2.wav")

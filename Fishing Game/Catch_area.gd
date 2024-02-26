@@ -1,6 +1,8 @@
 extends Label 
 @onready var fish_template: Node2D = $"../fish_template"
 
+signal catch
+
 var score : int 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +14,7 @@ func _process(delta: float) -> void:
 	if GlobalVariables.fish_is_hooked and GlobalVariables.player_position.y <= 11 :
 		score += 1
 		clear_fish_random_pos()	
+		catch.emit()
 		
 	text = str(score)
 func clear_fish_random_pos():

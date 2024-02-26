@@ -5,6 +5,7 @@ extends Node2D
 @onready var fish_template: Node2D = $"../fish_template"
 @export var debug: bool = false
 
+signal bite
 
 func _process(delta):
 	handle_input()
@@ -22,3 +23,4 @@ func _on_area_2d_area_entered(area):
 	if fish_template.is_in_group("fixe"):
 		if debug: print("something entered the player")
 		GlobalVariables.fish_is_hooked = true
+		bite.emit()
