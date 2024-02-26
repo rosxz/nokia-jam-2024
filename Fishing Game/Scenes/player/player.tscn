@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://l514p6wvdxg8"]
 
-[ext_resource type="Texture2D" uid="uid://bf4j02w7yw0cv" path="res://Fishing Game/Scenes/map/green.png" id="1_04p6y"]
 [ext_resource type="Script" path="res://Fishing Game/Scenes/player/player.gd" id="1_nmb4t"]
+[ext_resource type="Texture2D" uid="uid://dkonu8f44dshj" path="res://Fishing Game/Scenes/player/4PIXELS.png" id="2_7m4cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi3i1"]
 size = Vector2(2, 2)
@@ -16,7 +16,7 @@ script = ExtResource("1_nmb4t")
 shape = SubResource("RectangleShape2D_qi3i1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_04p6y")
+texture = ExtResource("2_7m4cn")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

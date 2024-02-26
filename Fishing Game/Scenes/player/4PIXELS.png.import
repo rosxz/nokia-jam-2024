@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p4ctqjow7b8o"
-path="res://.godot/imported/goldfish_piskel.png-ea737b75d94905b7e00a0e6198e1652a.ctex"
+uid="uid://dkonu8f44dshj"
+path="res://.godot/imported/4PIXELS.png-bc40315dc7a709ffccc9bc2357e2d130.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fishing Game/Scenes/fishes/fish_art/goldfish_piskel.png"
-dest_files=["res://.godot/imported/goldfish_piskel.png-ea737b75d94905b7e00a0e6198e1652a.ctex"]
+source_file="res://Fishing Game/Scenes/player/4PIXELS.png"
+dest_files=["res://.godot/imported/4PIXELS.png-bc40315dc7a709ffccc9bc2357e2d130.ctex"]
 
 [params]
 

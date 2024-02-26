@@ -1,21 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://c67cfdilibpxu"]
+[gd_scene load_steps=8 format=3 uid="uid://c67cfdilibpxu"]
 
 [ext_resource type="PackedScene" uid="uid://canpundi60ll7" path="res://Fishing Game/Scenes/map.tscn" id="1_ka6dq"]
 [ext_resource type="PackedScene" uid="uid://l514p6wvdxg8" path="res://Fishing Game/Scenes/player/player.tscn" id="2_4prb7"]
 [ext_resource type="PackedScene" uid="uid://dnv4kr1u7dfxb" path="res://Fishing Game/Scenes/fishes/fish_template.tscn" id="3_w367o"]
 [ext_resource type="Script" path="res://Fishing Game/global_variables.gd" id="4_e7wpw"]
+[ext_resource type="Script" path="res://Fishing Game/Catch_area.gd" id="5_1vh0e"]
+[ext_resource type="Script" path="res://Fishing Game/camera_control.gd" id="6_qfrgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x86yi"]
+size = Vector2(30, 12)
 
 [node name="Playable_level" type="Node2D"]
+script = ExtResource("4_e7wpw")
 
 [node name="map" parent="." instance=ExtResource("1_ka6dq")]
 
 [node name="Player" parent="." instance=ExtResource("2_4prb7")]
-position = Vector2(41, 20)
+position = Vector2(41, 17)
 
-[node name="fish_template" parent="." instance=ExtResource("3_w367o")]
-position = Vector2(31, 22)
-scale = Vector2(1, 1)
-debug = null
+[node name="gold_fish" parent="." instance=ExtResource("3_w367o")]
+position = Vector2(13, 29)
+debug = true
 
-[node name="global_variable" type="Node" parent="."]
-script = ExtResource("4_e7wpw")
+[node name="Label" type="Label" parent="."]
+offset_right = 10.0
+offset_bottom = 26.0
+text = "0"
+script = ExtResource("5_1vh0e")
+
+[node name="Catch_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catch_area"]
+position = Vector2(41, 6)
+shape = SubResource("RectangleShape2D_x86yi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(42, 24)
+script = ExtResource("6_qfrgo")
+
+[node name="angler_fish" type="Node2D" parent="."]
+position = Vector2(13, 29)
+
+[node name="snowflake_fish" type="Node2D" parent="."]
+
+[node name="luvtisc_fish" type="Node2D" parent="."]
+position = Vector2(13, 29)

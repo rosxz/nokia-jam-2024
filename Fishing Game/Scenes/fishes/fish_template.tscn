@@ -1,68 +1,97 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnv4kr1u7dfxb"]
+[gd_scene load_steps=13 format=3 uid="uid://dnv4kr1u7dfxb"]
 
-[ext_resource type="Texture2D" uid="uid://p4ctqjow7b8o" path="res://Fishing Game/Scenes/fishes/fish_art/goldfish_piskel.png" id="1_8si8j"]
 [ext_resource type="Script" path="res://Fishing Game/Scenes/fishes/fish_movement.gd" id="1_ffhvt"]
+[ext_resource type="Texture2D" uid="uid://buauap8c4fnev" path="res://Fishing Game/Scenes/fishes/fish_art/goldfish.png" id="2_kbif5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0cx8b"]
-atlas = ExtResource("1_8si8j")
-region = Rect2(0, 0, 480, 480)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxlpf"]
+radius = 6.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jtvha"]
-atlas = ExtResource("1_8si8j")
-region = Rect2(480, 0, 480, 480)
+[sub_resource type="AtlasTexture" id="AtlasTexture_oba60"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(0, 96, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4lxm7"]
-atlas = ExtResource("1_8si8j")
-region = Rect2(0, 480, 480, 480)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhuar"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(48, 96, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u2tnt"]
-atlas = ExtResource("1_8si8j")
-region = Rect2(480, 480, 480, 480)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhdkk"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q171h"]
-atlas = ExtResource("1_8si8j")
-region = Rect2(0, 960, 480, 480)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mdvs"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oneh"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2ixh"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgi70"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4gd"]
+atlas = ExtResource("2_kbif5")
+region = Rect2(48, 96, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1i1a"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0cx8b")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_oba60")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jtvha")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4lxm7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u2tnt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q171h")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_yhuar")
 }],
 "loop": true,
-"name": &"default",
+"name": &"hooked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhdkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mdvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oneh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2ixh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgi70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4gd")
+}],
+"loop": true,
+"name": &"swimming",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nxlpf"]
-radius = 2.23607
-
-[node name="fish_template" type="Node2D"]
-position = Vector2(43, 28)
+[node name="fish_template" type="Node2D" groups=["fixe"]]
 script = ExtResource("1_ffhvt")
 debug = null
+speed = null
+amplitude = 3.0
+frequency = null
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_nxlpf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.03125, 0.0331157)
 sprite_frames = SubResource("SpriteFrames_p1i1a")
-autoplay = "default"
+animation = &"hooked"
+autoplay = "swimming"
 flip_h = true
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_nxlpf")
