@@ -1,0 +1,54 @@
+[gd_scene load_steps=19 format=3 uid="uid://rew1rdkw4ni"]
+
+[ext_resource type="Texture2D" uid="uid://04ty2xhnhjsq" path="res://go-up/story/gif 1 rabiscos16.png" id="1_2r372"]
+[ext_resource type="Script" path="res://go-up/story.gd" id="1_j6w37"]
+[ext_resource type="Texture2D" uid="uid://kenoyaoa7tli" path="res://go-up/story/gif 1 rabiscos1.png" id="2_swvj8"]
+[ext_resource type="Texture2D" uid="uid://b77ipda0mkg58" path="res://go-up/story/gif 1 rabiscos2.png" id="3_27w0m"]
+[ext_resource type="Texture2D" uid="uid://b2mvypeui0fs2" path="res://go-up/story/gif 1 rabiscos3.png" id="4_1vvy1"]
+[ext_resource type="Texture2D" uid="uid://doj2wcp22wvco" path="res://go-up/story/gif 1 rabiscos4.png" id="5_cuwu6"]
+[ext_resource type="Texture2D" uid="uid://6jrbs38cu2jn" path="res://go-up/story/gif 1 rabiscos5.png" id="6_l0t78"]
+[ext_resource type="Texture2D" uid="uid://fl1meo8c1m47" path="res://go-up/story/gif 1 rabiscos6.png" id="7_845e0"]
+[ext_resource type="Texture2D" uid="uid://cl8fprcv6reod" path="res://go-up/story/gif 1 rabiscos7.png" id="8_nc1m6"]
+[ext_resource type="Texture2D" uid="uid://w0j86bpmnjhh" path="res://go-up/story/gif 1 rabiscos8.png" id="9_5xq6v"]
+[ext_resource type="Texture2D" uid="uid://b2rhiaulvhgg4" path="res://go-up/story/gif 1 rabiscos9.png" id="10_tii7f"]
+[ext_resource type="Texture2D" uid="uid://dehnrp8u73jf7" path="res://go-up/story/gif 1 rabiscos10.png" id="11_v7omt"]
+[ext_resource type="Texture2D" uid="uid://di6xii8lr387" path="res://go-up/story/gif 1 rabiscos11.png" id="12_vt6hh"]
+[ext_resource type="Texture2D" uid="uid://brsrq8b1r5m8l" path="res://go-up/story/gif 1 rabiscos12.png" id="13_cy536"]
+[ext_resource type="Texture2D" uid="uid://b7xr3aptqyboo" path="res://go-up/story/gif 1 rabiscos13.png" id="14_b4hoo"]
+[ext_resource type="Texture2D" uid="uid://c8itbrc337ra5" path="res://go-up/story/gif 1 rabiscos14.png" id="15_xr1jh"]
+
+[sub_resource type="Animation" id="Animation_3t824"]
+resource_name = "story"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.3, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.3, 5.5, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_swvj8"), ExtResource("3_27w0m"), ExtResource("4_1vvy1"), ExtResource("5_cuwu6"), ExtResource("6_l0t78"), ExtResource("7_845e0"), ExtResource("8_nc1m6"), ExtResource("9_5xq6v"), ExtResource("10_tii7f"), ExtResource("11_v7omt"), ExtResource("12_vt6hh"), ExtResource("13_cy536"), ExtResource("14_b4hoo"), ExtResource("15_xr1jh"), ExtResource("1_2r372")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4ogk"]
+_data = {
+"story": SubResource("Animation_3t824")
+}
+
+[node name="story" type="Node2D"]
+script = ExtResource("1_j6w37")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_swvj8")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u4ogk")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
