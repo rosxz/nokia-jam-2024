@@ -10,7 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_anything_pressed() and intro_timer:
-		get_tree().change_scene_to_file("res://go-up/lvl1.tscn")
+		get_tree().change_scene_to_file("res://go-up/story.tscn")
 
 
 func _on_timer_timeout():
