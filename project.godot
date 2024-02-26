@@ -21,11 +21,10 @@ GlobalVariables="*res://Fishing Game/global_variables.gd"
 
 [display]
 
-window/size/viewport_width=84
-window/size/viewport_height=48
-window/size/window_width_override=192
-window/size/window_height_override=328
-window/stretch/mode="canvas_items"
+window/size/viewport_width=288
+window/size/viewport_height=504
+window/size/resizable=false
+window/stretch/scale=6.0
 
 [input]
 

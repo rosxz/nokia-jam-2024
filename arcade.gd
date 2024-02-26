@@ -5,7 +5,7 @@ extends Node2D
 @onready var timer = $Timer as Timer
 @onready var audio_player = $AudioStreamPlayer as AudioStreamPlayer
 
-const game_level_path = {0: "res://go-up/menu.tscn", 1: ""}
+const game_level_path = {0: "res://go-up/menu.tscn", 1: "res://Fishing Game/Playable_level.tscn"}
 var texture
 var game_index = 0
 var audio_stream = preload("res://hit2.wav")
@@ -25,6 +25,8 @@ func _process(delta):
 		move_game(direction)
 		timer.start()
 	if Input.is_action_pressed("mv_special") or Input.is_action_pressed("act"):
+		if game_index == 1:
+			get_window().size = Vector2i(504, 288)
 		get_tree().change_scene_to_file(game_level_path.get(game_index, "res://go-up/menu.tscn"))
 
 func move_joystick(direction):
