@@ -1,11 +1,15 @@
 extends Node
 
+@onready var player = $"../Player" as CharacterBody2D
 
-# Called when the node enters the scene tree for the first time.
+var fish_is_hooked : bool = false 
+var player_position: int 
+
+
+
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	fish_is_hooked = false 
+	
 func _process(delta):
-	pass
+	print(player.position)
+
