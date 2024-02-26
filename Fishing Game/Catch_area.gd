@@ -1,18 +1,27 @@
 extends Label 
 @onready var fish_template: Node2D = $"../fish_template"
 
-var score : int = 0
+var score : int 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	score  = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = str(score)
-
-
-func _on_catch_area_body_entered(body: Node2D) -> void:
-	if fish_template.is_in_group("fixe"):
-		score = 0
+	if GlobalVariables.fish_is_hooked and GlobalVariables.player_position.y <= 11 :
+		score += 1
+		clear_fish_random_pos()	
 		
+	text = str(score)
+func clear_fish_random_pos():
+	fish_template.position.y = randf_range(-3.0,22.0)
+	fish_template.position.x = -30
+	fish_template.rotation = 0
+	GlobalVariables.time = 0
+	GlobalVariables.fish_is_hooked = false
+	
+	
+
+		
+

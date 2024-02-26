@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://2wykc8hqq3j3"]
+
+[ext_resource type="Texture2D" uid="uid://c2o8k6eu6vlbu" path="res://Fishing Game/menu/mainscreen_1.png" id="1_1fynt"]
+[ext_resource type="Texture2D" uid="uid://3k8h6dtlb0j6" path="res://Fishing Game/menu/mainscreen_2.png" id="2_wuf8y"]
+[ext_resource type="Texture2D" uid="uid://c8xtvh3ld8nam" path="res://Fishing Game/menu/play_3.png" id="3_gwvr7"]
+[ext_resource type="Script" path="res://Fishing Game/TextureButton.gd" id="4_styjb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxo7l"]
+atlas = ExtResource("1_1fynt")
+region = Rect2(0, 0, 84, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pvsw"]
+atlas = ExtResource("2_wuf8y")
+region = Rect2(0, 0, 84, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnoii"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_jxo7l")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2pvsw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("4_styjb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(43, 24)
+sprite_frames = SubResource("SpriteFrames_pnoii")
+autoplay = "default"
+frame_progress = 0.973265
+
+[node name="Play3" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(42, 25)
+texture = ExtResource("3_gwvr7")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_top = 1.0
+offset_right = 84.0
+offset_bottom = 49.0
+texture_normal = ExtResource("3_gwvr7")

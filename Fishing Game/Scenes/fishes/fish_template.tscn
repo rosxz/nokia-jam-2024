@@ -77,10 +77,7 @@ animations = [{
 
 [node name="fish_template" type="Node2D" groups=["fixe"]]
 script = ExtResource("1_ffhvt")
-debug = null
-speed = null
 amplitude = 3.0
-frequency = null
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -2)

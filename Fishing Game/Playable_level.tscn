@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c67cfdilibpxu"]
+[gd_scene load_steps=9 format=3 uid="uid://c67cfdilibpxu"]
 
 [ext_resource type="PackedScene" uid="uid://canpundi60ll7" path="res://Fishing Game/Scenes/map.tscn" id="1_ka6dq"]
 [ext_resource type="PackedScene" uid="uid://l514p6wvdxg8" path="res://Fishing Game/Scenes/player/player.tscn" id="2_4prb7"]
 [ext_resource type="PackedScene" uid="uid://dnv4kr1u7dfxb" path="res://Fishing Game/Scenes/fishes/fish_template.tscn" id="3_w367o"]
 [ext_resource type="Script" path="res://Fishing Game/global_variables.gd" id="4_e7wpw"]
 [ext_resource type="Script" path="res://Fishing Game/Catch_area.gd" id="5_1vh0e"]
+[ext_resource type="FontFile" uid="uid://bb3b1kc13hawi" path="res://Fishing Game/EffortsPro.ttf" id="5_r3cnx"]
 [ext_resource type="Script" path="res://Fishing Game/camera_control.gd" id="6_qfrgo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x86yi"]
-size = Vector2(30, 12)
+[ext_resource type="Texture2D" uid="uid://bdfdegtbai3ei" path="res://Fishing Game/Scenes/iglu.png" id="8_2hhbm"]
 
 [node name="Playable_level" type="Node2D"]
 script = ExtResource("4_e7wpw")
@@ -16,32 +15,25 @@ script = ExtResource("4_e7wpw")
 [node name="map" parent="." instance=ExtResource("1_ka6dq")]
 
 [node name="Player" parent="." instance=ExtResource("2_4prb7")]
-position = Vector2(41, 17)
+position = Vector2(43, 21)
 
-[node name="gold_fish" parent="." instance=ExtResource("3_w367o")]
-position = Vector2(13, 29)
-debug = true
+[node name="fish_template" parent="." instance=ExtResource("3_w367o")]
+position = Vector2(-16, 20)
 
 [node name="Label" type="Label" parent="."]
-offset_right = 10.0
-offset_bottom = 26.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("5_r3cnx")
 text = "0"
 script = ExtResource("5_1vh0e")
-
-[node name="Catch_area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Catch_area"]
-position = Vector2(41, 6)
-shape = SubResource("RectangleShape2D_x86yi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(42, 24)
 script = ExtResource("6_qfrgo")
 
-[node name="angler_fish" type="Node2D" parent="."]
-position = Vector2(13, 29)
-
-[node name="snowflake_fish" type="Node2D" parent="."]
-
-[node name="luvtisc_fish" type="Node2D" parent="."]
-position = Vector2(13, 29)
+[node name="Iglu" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(71, 3)
+texture = ExtResource("8_2hhbm")

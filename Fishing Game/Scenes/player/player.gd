@@ -9,7 +9,7 @@ extends Node2D
 func _process(delta):
 	handle_input()
 	GlobalVariables.player_position = self.position
-
+	
 
 func handle_input():
 	if Input.is_action_just_pressed("mv_up"):

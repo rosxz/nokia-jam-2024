@@ -1,6 +1,6 @@
 extends Node2D
 
-var time : float = 0.0
+#var time : float = 0.0
 @onready var fish_template = $"."
 @export var debug : bool = false
 var original_position = self.position
@@ -10,27 +10,28 @@ var original_position = self.position
 @export var speed : float = 8.0
 @export var amplitude : float = 1.5
 @export var frequency : float = 1.5
-@export animated_sprite_2d.texture
+
 
 func _process(delta):
-	time += delta
+	GlobalVariables.time += delta
 	get_hooked()
 	fish_movement()
+	GlobalVariables.fishPosition = position
 	animation()
-
+	#print(time)
+	if GlobalVariables.time >= 30:
+		GlobalVariables.time = 0
+		
 
 func get_sine() -> float:
-	return floor(sin((time * frequency))*amplitude * 2 )
-#func get_stepped() -> float:
-#	# Use the modulo operation to create a stepped function
-#	var step_height : float = 0.5 # Adjust the step height based on your preference
-#	return step_height * floor(time * 2.0)  # Adjust the multiplier based on your step frequency
+	return floor(sin((GlobalVariables.time * frequency))*amplitude * 2 )
+
 	
 func fish_movement() -> void:
 	if !GlobalVariables.fish_is_hooked:
-		fish_template.position.x = floor(time * speed)  # Adjust the multiplier based on your speed requirement
+		fish_template.position.x = floor(GlobalVariables.time * speed)  # Adjust the multiplier based on your speed requirement
 		fish_template.position.y = 23 - get_sine()    # Adjust the y-position based on your needs
-
+	
 	
 func get_hooked() -> void:
 	if GlobalVariables.fish_is_hooked:
@@ -38,6 +39,7 @@ func get_hooked() -> void:
 		fish_template.rotation = -190 # pq -190 graus? no idea but it works 
 		position.x = GlobalVariables.player_position.x + 3.5
 		position.y = GlobalVariables.player_position.y + 7
+		
 		
 func animation() -> void:
 	if !GlobalVariables.fish_is_hooked:
