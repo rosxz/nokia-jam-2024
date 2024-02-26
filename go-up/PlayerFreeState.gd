@@ -20,7 +20,6 @@ func _exit_state():
 	set_physics_process(false)
 
 func _physics_process(delta):
-	
 	# Add the gravity.
 	if not player.is_on_floor():
 		state_finished.emit()
@@ -28,7 +27,9 @@ func _physics_process(delta):
 	# Handle Jump.
 	if (Input.is_action_just_pressed("mv_up") or Input.is_action_just_pressed("mv_special")) \
 	  and player.is_on_floor():
+		player.anim_player.stop()
 		charge_jump.emit()
+		return
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -42,5 +43,11 @@ func _physics_process(delta):
 	if direction != 0 and direction != last_direction:
 		player.visual_node.scale.x = direction
 		last_direction = direction
+		
+	if player.velocity.x != 0:
+		player.anim_player.play("walk")
+		player.anim_player.get_animation("walk").set_loop_mode(1)
+	else:
+		player.anim_player.get_animation("walk").set_loop_mode(0)
 
 	player.move_and_slide()

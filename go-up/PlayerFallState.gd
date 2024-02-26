@@ -5,6 +5,7 @@ extends State
 @onready var raycast_timer = $RayCastTimer as Timer
 
 signal player_recover
+signal sound_player(track)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,7 @@ func _physics_process(delta):
 	if player.bounce_raycast.is_colliding() and player.velocity.x != 0:
 		player.velocity.x += player.velocity.x * -2
 		player.visual_node.scale.x = player.visual_node.scale.x * -1
+		sound_player.emit("bounce")
 #		player.bounce_raycast.set_enabled(false)
 #		raycast_timer.start()
 	
@@ -31,6 +33,7 @@ func _physics_process(delta):
 	else:
 		if player.velocity.y == 0:
 			player_recover.emit()
+			return
 	player.move_and_slide()
 
 

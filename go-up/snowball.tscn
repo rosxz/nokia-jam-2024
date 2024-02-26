@@ -20,6 +20,7 @@ vframes = 14
 frame = 1
 
 [node name="Despawn" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="Despawn" to="." method="_on_despawn_timeout"]
